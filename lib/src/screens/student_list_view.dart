@@ -13,60 +13,66 @@ class studentHomeScreenViewController extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Center(
-            child: Text("student listview", 
+            child: Text("Kurdistan cities", 
             style: TextStyle(
               color: Colors.black,
-              fontWeight: FontWeight.bold),
-            ),
-          ),
-          backgroundColor: Colors.transparent,
-          elevation:0,
-
-        ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-          
-              child: ListView.builder(
-                itemCount: mockdata.length,
-                itemBuilder: (context,index){
-                  return Card(
-                    child: ListTile(
-                      subtitle:Text(index.toString()),
-                      leading: Image.network(mockdata[index]["image"].toString()),
-                      title: Text(mockdata[index]["first_name"].toString()),
-                      trailing: IconButton( icon: Icon(Icons.arrow_right),
-                      onPressed: (){
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context)=>Detailscreen(
-                          imagUrl:mockdata[index]["image"].toString(),
-                          studentName: mockdata[index]["first_name"].toString(),
-                          )
-                          
-                          )
-                          );
-                          
-                      },
-                      ),
-                  
-                    ),
-                  );
-                },
-              )
               ),
             ),
+          ),
+          backgroundColor: Colors.grey[500],
           
-          Container(
-            color:Colors.blue,
-            height:115,
-          )
-        ],
-      ),
 
-      ),
+        ),
+     body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                  child: ListView.builder(
+                      itemCount: mockdata.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(14),
+                                height: 200,
+                                width: 300,
+                                child:
+                                    Image.network(mockdata[index]["image"].toString()),
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  height: 40,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey[400],
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Text(mockdata[index]["name"].toString(),
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                      )),
+                                ),
+                              )
+                            ],
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Detailscreen(
+                                       imagUrl:mockdata[index]["image"].toString(),
 
+                          studentName: mockdata[index]["name"].toString(),
 
+                          desc: mockdata[index]["desc"].toString(),
+                                    )));
+                          },
+                        );
+                      })),
+            ],
+          )),
     );
   }
 }
