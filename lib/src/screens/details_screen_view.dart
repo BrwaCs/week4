@@ -3,7 +3,12 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class Detailscreen extends StatelessWidget {
-  const Detailscreen({Key? key}) : super(key: key);
+  const Detailscreen({Key? key, required this.studentName, required this.imagUrl}) : super(key: key);
+
+final String studentName;
+final String imagUrl;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class Detailscreen extends StatelessWidget {
                   alignment: Alignment.center,
                   height:197,
                   width:229,
-                  child: Placeholder(),
+                  child: Image.network(imagUrl),
               
                 ),
               ),
@@ -34,7 +39,7 @@ class Detailscreen extends StatelessWidget {
               Expanded(
                 child: Container(
                   alignment: Alignment.center,
-                  child: Text("the student name"),
+                  child: Text(studentName),
                 ),
               ),
             ],

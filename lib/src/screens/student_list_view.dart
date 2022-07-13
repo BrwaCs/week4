@@ -39,9 +39,14 @@ class studentHomeScreenViewController extends StatelessWidget {
                       trailing: IconButton( icon: Icon(Icons.arrow_right),
                       onPressed: (){
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context)=>Detailscreen()
+                          MaterialPageRoute(builder: (context)=>Detailscreen(
+                          imagUrl:mockdata[index]["image"].toString(),
+                          studentName: mockdata[index]["first_name"].toString(),
+                          )
+                          
                           )
                           );
+                          
                       },
                       ),
                   
