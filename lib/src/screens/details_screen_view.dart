@@ -9,7 +9,67 @@ class Detailscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: SafeArea(child: Text("detail screen"))
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment:MainAxisAlignment.center,
+            crossAxisAlignment:CrossAxisAlignment.center,
+            children: [
+              
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  alignment: Alignment.center,
+                  height:197,
+                  width:229,
+                  child: Placeholder(),
+              
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment:MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text("the student name"),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment:MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Container(
+                  alignment:Alignment.center,
+              
+                  child: Text("kjndsklncfskldnf")
+                ),
+              ),
+            ],
+          ),
+          Row(
+            
+            children: [
+              Expanded(
+                child: Container(
+              
+                  height:300,
+                  width:300,
+                  color: Colors.grey[600],
+              
+              
+                ),
+              ),
+            ],
+          )
+
+
+        ],
+      )
 
     );
   }
